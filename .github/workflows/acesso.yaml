@@ -1,0 +1,17 @@
+name: Acesso
+
+on: 
+  workflow_call:
+
+    inputs:
+      site:
+        required: true
+        type: string
+
+jobs:
+  acesso:
+    runs-on: ubuntu-latest
+    steps:
+
+      - name: rodar o curl
+        run: curl ${{ inputs.site }}
