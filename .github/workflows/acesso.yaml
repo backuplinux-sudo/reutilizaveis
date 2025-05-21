@@ -7,6 +7,11 @@ on:
       site:
         required: true
         type: string
+    secrets:
+      usuario:
+        required: true
+      senha:
+        required: true
 
 jobs:
   acesso:
@@ -14,4 +19,4 @@ jobs:
     steps:
 
       - name: rodar o curl
-        run: curl ${{ inputs.site }}
+        run: curl -u ${{ secrets.usuario }}:${{ secrets.senha }} ${{ inputs.site }}
