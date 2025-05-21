@@ -7,11 +7,6 @@ on:
       site:
         required: true
         type: string
-    secrets:
-      usuario:
-        required: true
-      senha:
-        required: true
 
 jobs:
   acesso:
