@@ -19,4 +19,4 @@ jobs:
     steps:
 
       - name: rodar o curl
-        run: curl -u ${{ secrets.usuario }}:${{ secrets.senha }} ${{ inputs.site }}
+        run: curl -u ${{ vars.usuario }}:${{ secrets.teste }} ${{ inputs.site }}
