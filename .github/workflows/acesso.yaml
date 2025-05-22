@@ -8,10 +8,19 @@ on:
         required: true
         type: string
 
+    outputs:
+      saida:
+        value: ${{ jobs.acesso.outputs.saida }}
+
 jobs:
   acesso:
+    outputs:
+      saida: ${{ steps.curl.outputs.saida }}
     runs-on: ubuntu-latest
     steps:
 
       - name: rodar o curl
-        run: curl -u ${{ vars.usuario }}:${{ secrets.teste }} ${{ inputs.site }}
+        id: curl
+        run: |
+          curl -u ${{ vars.usuario }}:${{ secrets.teste }} ${{ inputs.site }}
+          echo saida=$? >> $GITHUB_OUTPUT
