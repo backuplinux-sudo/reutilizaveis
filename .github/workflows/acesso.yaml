@@ -9,13 +9,13 @@ on:
         type: string
 
     outputs:
-      saida:
-        value: ${{ jobs.acesso.outputs.saida }}
+      codigo_retorno:
+        value: ${{ jobs.acesso.outputs.codigo_retorno }}
 
 jobs:
   acesso:
     outputs:
-      saida: ${{ steps.curl.outputs.saida }}
+      codigo_retorno: ${{ steps.curl.outputs.codigo_retorno }}
     runs-on: ubuntu-latest
     steps:
 
@@ -23,4 +23,4 @@ jobs:
         id: curl
         run: |
           curl -u ${{ vars.usuario }}:${{ secrets.teste }} ${{ inputs.site }}
-          echo saida=$? >> $GITHUB_OUTPUT
+          echo codigo_retorno=$? >> $GITHUB_OUTPUT
