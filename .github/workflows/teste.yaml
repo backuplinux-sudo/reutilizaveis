@@ -1,0 +1,13 @@
+name: Chamada action reusable
+
+on: workflow_dispatch
+
+jobs:
+  teste:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/instalacoes/action.yaml@main
+        with:
+          workflow: ${{ github.workflow }}
+
