@@ -1,0 +1,29 @@
+name: Instalação dos softwares
+author: Nome do setor
+description: Instalação dos softwares requeridos por segurança da informação
+
+inputs:
+  workflow:
+    description: O workflow que chamou essa action
+    required: true
+# outputs:
+
+runs:
+  using: composite
+  steps:
+    - shell: bash
+      run: |
+
+        echo "Essa action foi chamada pelo workflow: ${{ inputs.workflow }}"
+
+        if [[ "${{ runner.os }}" == "Windows" ]]; then
+          echo "Passos para instação de softwares no Windows."
+        fi
+        if [[ "${{ runner.os }}" == "Linux" ]]; then
+          sudo apt update
+          sudo apt install -y \
+            curl \
+            net-tools \
+            openssl
+        fi
+
