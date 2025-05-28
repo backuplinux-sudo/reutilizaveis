@@ -24,3 +24,5 @@ jobs:
         run: |
           curl -u ${{ vars.usuario }}:${{ secrets.teste }} ${{ inputs.site }}
           echo codigo_retorno=$? >> $GITHUB_OUTPUT
+  teste:
+    uses: backuplinux-sudo/reutilizaveis/.github/workflows/teste.yaml@main
