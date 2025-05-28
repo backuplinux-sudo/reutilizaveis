@@ -17,7 +17,7 @@ jobs:
           ls -la .github/actions/
           echo "instalacoes"
           ls -la .github/actions/instalacoes
-      - uses: ./.github/actions/instalacoes/action.yaml
+      - uses: ./.github/actions/instalacoes/
         with:
           workflow: ${{ github.workflow }}
 
