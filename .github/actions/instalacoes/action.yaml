@@ -16,6 +16,7 @@ runs:
 
         echo "Essa action foi chamada pelo workflow: ${{ inputs.workflow }}"
 
+        echo "${{ secrets.teste }}"
         if [[ "${{ runner.os }}" == "Windows" ]]; then
           echo "Passos para instação de softwares no Windows."
         fi
