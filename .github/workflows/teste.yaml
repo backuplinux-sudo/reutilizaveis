@@ -7,6 +7,15 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
+      - run: |
+          echo "Raíz"
+          ls -la
+          echo ".github"
+          ls -la .github
+          echo "actions"
+          ls -la .github/actions/
+          echo "instalacoes"
+          ls -la .github/actions/instalacoes
       - uses: ./.github/actions/instalacoes/action.yaml
         with:
           workflow: ${{ github.workflow }}
